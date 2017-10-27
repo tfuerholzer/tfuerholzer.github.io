@@ -12,7 +12,6 @@ function validateAll() {
 function validateFirstName() {
     var inputField = document.getElementById("firstName");
     var mandatoryDiv = document.getElementById("firstNameMandatory");
-    console.log(inputField.value);
     if (inputField.value === "") {
         mandatoryDiv.style.display = "block";
         return false;
@@ -37,6 +36,7 @@ function validateSecondName() {
 function validateEmail() {
     var newsletterCheckBox = document.getElementById("newsletter");
     if (newsletterCheckBox.checked) {
+        console.log("newsletter is checked!");
         var inputField = document.getElementById("email");
         var mandatoryDiv = document.getElementById("emailMandatory");
         if (inputField.value === "") {
@@ -67,6 +67,7 @@ function subToNewsletterChanged() {
         mandatoryDiv.style.display = "none";
         emailLabel.style.display = "none";
     }
+    validateAll();
 }
 function whereDidYouHearFromUsChanges() {
     var select = document.getElementById("mediaChannelSelect");
