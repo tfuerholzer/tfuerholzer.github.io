@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ng-container>\n  <ng-container *ngIf=\"!isLandscape; else landscape\">\n    <div class=\"desktop-container element-center \" *ngIf=\"currentTime == null;else timeDisplay\">\n      <div class=\"text-basic text-white text-light text-xxxlarge text-center text-size-transition\" style=\"margin-top : 35%\" (click)=\"startTimer()\">\n        Tippen zum Starten!\n      </div>\n    </div>\n\n    <ng-template #timeDisplay>\n      <div class=\"text-basic text-white text-light text-insane-large text-center text-size-transition\" style=\"margin-top : 10%\">\n        {{currentTime}}\n          <button mat-fab class=\"element-center\" style=\"position: fixed; bottom: 32px; left: 32px\" (click)=\"stopTime()\"><img src=\"assets/stop-24px.svg\"></button>\n          <button mat-fab color=\"primary\" class=\"element-center\" style=\"position: fixed; bottom: 32px; right: 32px\" (click)=\"resetTime()\"><img src=\"assets/replay-24px.svg\"></button>\n      </div>\n\n      <div style=\"height: 58%\">\n        <app-time-list [times]=\"times\"></app-time-list>\n      </div>\n    </ng-template>\n\n  </ng-container>\n\n  <ng-template #landscape>\n    <ng-container *ngIf=\"currentTime == null;else timeDisplay\">\n      <div class=\"text-basic text-white text-light text-xxxlarge text-center text-size-transition\" style=\"margin-top : 15%\" (click)=\"startTimer()\">\n        Tippen zum Starten!1\n      </div>\n    </ng-container>\n\n    <ng-template #timeDisplay>\n      <section class=\"container\">\n        <div class=\"one\">\n          <div style=\"height: 90%; margin-bottom: 5%\">\n            <app-time-list [times]=\"times\"></app-time-list>\n          </div>\n        </div>\n        <div class=\"two\">\n          <div class=\"text-center text-insane-large text-lighter text-white text-basic\" style=\"margin-top: 25%\">\n            {{currentTime}}\n          </div>\n        </div>\n      </section>\n\n      <button mat-fab class=\"element-center\" style=\"position: fixed; bottom: 32px; right: 124px\" (click)=\"stopTime()\"><img src=\"assets/stop-24px.svg\"></button>\n      <button mat-fab color=\"primary\" class=\"element-center\" style=\"position: fixed; bottom: 32px; right: 32px\" (click)=\"resetTime()\"><img src=\"assets/replay-24px.svg\"></button>\n    </ng-template>\n\n  </ng-template>\n</ng-container>\n\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container>\n  <ng-container *ngIf=\"!isLandscape; else landscape\">\n    <div class=\"desktop-container element-center \" *ngIf=\"currentTime == null;else timeDisplay\">\n      <div class=\"text-basic text-white text-light text-xxxlarge text-center text-size-transition\" style=\"margin-top : 35%\" (click)=\"startTimer()\">\n        Tippen zum Starten!\n      </div>\n    </div>\n\n    <ng-template #timeDisplay>\n      <div class=\"text-basic text-white text-light text-insane-large text-center text-size-transition\" style=\"margin-top : 10%\">\n        {{currentTime}}\n          <button mat-fab class=\"element-center\" style=\"position: fixed; bottom: 32px; left: 32px\" (click)=\"stopTime()\"><img src=\"assets/stop-24px.svg\"></button>\n          <button mat-fab color=\"primary\" class=\"element-center\" style=\"position: fixed; bottom: 32px; right: 32px\" (click)=\"resetTime()\"><img src=\"assets/replay-24px.svg\"></button>\n      </div>\n\n      <div style=\"height: 58%\">\n        <app-time-list [times]=\"times\"></app-time-list>\n      </div>\n    </ng-template>\n\n  </ng-container>\n\n  <ng-template #landscape>\n    <ng-container *ngIf=\"currentTime == null;else timeDisplay\">\n      <div class=\"text-basic text-white text-light text-xxxlarge text-center text-size-transition\" style=\"margin-top : 15%\" (click)=\"startTimer()\">\n        Tippen zum Starten!\n      </div>\n    </ng-container>\n\n    <ng-template #timeDisplay>\n      <section class=\"container\">\n        <div class=\"one\">\n          <div style=\"height: 90%; margin-bottom: 5%\">\n            <app-time-list [times]=\"times\"></app-time-list>\n          </div>\n        </div>\n        <div class=\"two\">\n          <div class=\"text-center text-insane-large text-lighter text-white text-basic\" style=\"margin-top: 25%\">\n            {{currentTime}}\n          </div>\n        </div>\n      </section>\n\n      <button mat-fab class=\"element-center\" style=\"position: fixed; bottom: 32px; right: 124px\" (click)=\"stopTime()\"><img src=\"assets/stop-24px.svg\"></button>\n      <button mat-fab color=\"primary\" class=\"element-center\" style=\"position: fixed; bottom: 32px; right: 32px\" (click)=\"resetTime()\"><img src=\"assets/replay-24px.svg\"></button>\n    </ng-template>\n\n  </ng-template>\n</ng-container>\n\n\n\n");
 
 /***/ }),
 
@@ -648,6 +648,10 @@ let WatchComponent = class WatchComponent {
         else {
             this.isLandscape = true;
         }
+        console.log(this.isLandscape);
+    }
+    changeOrientation() {
+        this.isLandscape = !this.isLandscape;
     }
     ngAfterContentInit() {
         this.checkOrientation();
@@ -673,7 +677,7 @@ let WatchComponent = class WatchComponent {
 };
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:orientationchange')
-], WatchComponent.prototype, "checkOrientation", null);
+], WatchComponent.prototype, "changeOrientation", null);
 WatchComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-watch',
